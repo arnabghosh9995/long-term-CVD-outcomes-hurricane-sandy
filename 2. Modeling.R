@@ -414,7 +414,7 @@ extract_exp_last_es_variables <- function(model) {
   #####################################
   
   # Nearest neighbor 2:1 with replacement
-  match_model_2to1 <- matchit(stormsurgedummy ~ mean_age + fraction_age65over + fraction_rent_occupied_unt + Charlson_adj_avrg + ADI_NATRANK + fraction_female + fraction_overcrowd_housng + median_hshld_incm_norm + fraction_racial_minor + state_flood, data = pre_regional_analysis, method = "nearest",ratio = 1, distance = "logit", replace = TRUE, distance.options = list())
+  match_model_2to1 <- matchit(stormsurgedummy ~ mean_age + fraction_age65over + fraction_rent_occupied_unt + Charlson_adj_avrg + ADI_NATRANK + fraction_female + fraction_overcrowd_housng + median_hshld_incm_norm + fraction_racial_minor + state_flood, data = pre_regional_analysis, method = "nearest",ratio = 2, distance = "logit", replace = TRUE, distance.options = list())
   
   
   summary(match_model_2to1, un = FALSE) # Assess the average absolute within-pair difference between each covariate
@@ -463,7 +463,7 @@ extract_exp_last_es_variables <- function(model) {
   extract_exp_last_variable_did(modelINLA.allregions.CVD.matched2to1.100)
   
   # Nearest neighbor 1:1 with replacement
-  match_model_1to1 <- matchit(stormsurgedummy ~ mean_age + fraction_age65over + fraction_rent_occupied_unt + Charlson_adj_avrg + ADI_NATRANK + fraction_female + fraction_overcrowd_housng + median_hshld_incm_norm + fraction_racial_minor + state_flood, data = pre_regional_analysis, method = "nearest", distance = "logit", replace = TRUE, ratio = 3)
+  match_model_1to1 <- matchit(stormsurgedummy ~ mean_age + fraction_age65over + fraction_rent_occupied_unt + Charlson_adj_avrg + ADI_NATRANK + fraction_female + fraction_overcrowd_housng + median_hshld_incm_norm + fraction_racial_minor + state_flood, data = pre_regional_analysis, method = "nearest", distance = "logit", replace = TRUE, ratio = 1)
 
   summary(match_model_1to1, un = FALSE) # Assess the average absolute within-pair difference between each covariate
   plot(match_model_1to1, type = "jitter", interactive = FALSE)
